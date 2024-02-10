@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+// Importe os componentes necessários do React Router
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// Importe suas páginas
+import Home from "./Pages/Home";
+import Statistics from "./Pages/Statistics";
+import Navbar from "./Components/Navbar/Navbar";
+import OccurrenceReport from "./Components/OccurrenceReport/OccurrenceReport";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        {/* Adicione um cabeçalho comum, rodapé ou layout aqui, se necessário */}
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/occurrence-report" component={OccurrenceReport} />
+          <Route path="/statistics" component={Statistics} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

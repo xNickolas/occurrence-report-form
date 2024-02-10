@@ -1,13 +1,109 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Proxima Nova, -apple-system, Roboto, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ebebeb;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+input, textarea {
+  box-sizing: border-box;
+}
+
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .col-lg-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+.d-block {
+  display: block;
+}
+
+.button-primary {
+  background-color: #3483fa;
+  border-color: transparent;
+  color: #fff;
+  display: inline-block;
+  line-height: 1;
+  width: auto;
+  box-shadow: 0 0 0 0 #fff;
+  cursor: pointer;
+
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 24px;
+  text-align: center;
+  width: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.button-primary:hover {
+  background-color: #246ad2;
+}
+
+.button-secondary {
+  background-color: transparent;
+  border-color: transparent;
+  color: #3483fa;
+  display: inline-block;
+  line-height: 1;
+  width: auto;
+  box-shadow: 0 0 0 0 #fff;
+  cursor: pointer;
+
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 24px;
+  text-align: center;
+  width: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.button-secondary:hover {
+  background-color: rgba(65,137,230,.1);
 }

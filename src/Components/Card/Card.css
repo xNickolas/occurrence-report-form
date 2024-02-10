@@ -1,0 +1,94 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    width: 210px;
+    max-width: 100%;
+    margin-bottom: 5px;
+    margin-right: 16px;
+    padding-bottom: 16px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
+    background-color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.card:hover p {
+    color: #3483fa;
+}
+
+.card:hover .card-button {
+    background: rgba(42, 94, 162, 0.15);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    padding-bottom: 0;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    margin: 5px 17px;
+    max-height: 24px;
+    padding-bottom: 0;
+}
+
+.card-body h1 {
+    color: rgba(0,0,0,.9);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0;
+    overflow: hidden;
+    padding: 16px 12px 16px 16px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-body .card-icon {
+    /* font-size: 70px; */
+    align-items: center;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+}
+
+.card-body img {
+    max-width: 100%;
+}
+
+.card-body p {
+    color: rgba(0,0,0,.9);
+    font-family: Proxima Nova,-apple-system,Roboto,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    height: 52px;
+    line-height: 18px;
+    padding: 12px 16px;
+    text-align: center;
+}
+
+.card-button {
+    background: rgba(65,137,230,.15);
+    border-radius: 4px;
+    border: none;
+    color: #3483fa;
+    font-family: Proxima Nova,-apple-system,Roboto,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 12px;
+    overflow: hidden;
+    padding: 6px 8px;
+    text-align: center;
+    -webkit-text-decoration-line: none;
+    text-decoration-line: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
