@@ -8,20 +8,14 @@
     min-height: 35vh;
 }
 
-.hero-container {
-    /* width: 100%; */
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.hero-container h1 {
+.hero h1 {
     font-family: Proxima Nova,-apple-system,Roboto,Arial,sans-serif;
     font-size: 32px;
     font-weight: 600;
     color: #333;
 }
 
-.hero-container p {
+.hero p {
     font-size: 19px;
     font-weight: 300;
     letter-spacing: .3px;
@@ -31,7 +25,7 @@
 }
 
 @media (max-width: 576px){
-    .hero-container {
+    .hero {
         padding-left: 3%;
         padding-right: 3%;
     }

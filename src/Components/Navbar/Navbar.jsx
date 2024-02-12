@@ -29,6 +29,9 @@ const Navbar = () => {
             <li className="nav-menu-item">
               <Link className="nav-menu-link" to="/occurrence-report">Registro de Ocorrência</Link>
             </li>
+            <li className="nav-menu-item">
+              <Link className="nav-menu-link" to="/statistics">Estatísticas</Link>
+            </li>
           </ul>
         </div>
         <div className="nav-toggle" onClick={toggleMenu}>

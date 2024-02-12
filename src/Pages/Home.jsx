@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import "../Pages/Home.css";
 import Card from "../Components/Card/Card";
@@ -9,7 +8,7 @@ const Home = () => {
   return (
     <main>
       <section className="hero">
-        <div className="hero-container">
+        <div className="container">
           <div>
             <h1>Registro de Ocorrências em Centros de Distribuição</h1>
             <p>

@@ -11,18 +11,18 @@ code {
     monospace;
 }
 
-input, textarea {
+input,
+textarea {
   box-sizing: border-box;
 }
-
 
 *,
 *:after,
 *:before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 .row {
@@ -45,6 +45,14 @@ input, textarea {
 }
 
 @media (min-width: 992px) {
+  .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+  .col-lg-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
   .col-lg-6 {
     flex: 0 0 auto;
     width: 50%;
@@ -56,8 +64,13 @@ input, textarea {
   }
 }
 
-.d-block {
-  display: block;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .button-primary {
@@ -105,5 +118,5 @@ input, textarea {
   -webkit-font-smoothing: antialiased;
 }
 .button-secondary:hover {
-  background-color: rgba(65,137,230,.1);
+  background-color: rgba(65, 137, 230, 0.1);
 }

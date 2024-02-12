@@ -1,5 +1,4 @@
 import React from 'react';
-import "../FormFields/FormGroup.css";
 
 const Input = ({ label, type, name, value, onChange }) => {
   return (

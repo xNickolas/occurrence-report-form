@@ -1,5 +1,4 @@
 import React from 'react';
-import "../FormFields/FormGroup.css";
 
 const TextArea = ({ label, name, value, onChange }) => {
   return (

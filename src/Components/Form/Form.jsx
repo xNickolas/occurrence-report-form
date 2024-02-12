@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import "../Form/Form.css";
+import { useOccurrenceContext } from "../../Contexts/OccurrenceContext";
 import Input from "../FormFields/Input";
 import TextArea from "../FormFields/TextArea";
 import Select from "../FormFields/SelectAddress";
 import FileUpload from "../FormFields/FileUpload";
 
 const Form = () => {
+  const { addOccurrence } = useOccurrenceContext();
+
   const [formData, setFormData] = useState({
     nomeRelator: "",
     tituloOcorrencia: "",
@@ -19,6 +23,7 @@ const Form = () => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [fileUploaded, setFileUploaded] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(false);
 
   // Handlers para atualizar o estado do formulário
   const handleChange = (e) => {
@@ -27,6 +32,9 @@ const Form = () => {
       ...prevState,
       [name]: value,
     }));
+    if (name === "descricaoOcorrencia") {
+      setDescriptionError(value.length < 5);
+    }
   };
 
   const handleEnderecoSelecionado = (endereco) => {
@@ -52,11 +60,13 @@ const Form = () => {
       formData.nomeRelator &&
       formData.tituloOcorrencia &&
       formData.descricaoOcorrencia &&
+      formData.enderecoOcorrencia &&
       formData.dataOcorrencia &&
       fileUploaded
     ) {
       // Realize a submissão do formulário
       console.log("Formulário submetido com sucesso:", formData);
+      addOccurrence(formData); // Adicionar a ocorrência ao contexto global
       setShowErrorMessage(false); // Resetar o estado de exibição do erro
       setFormSubmitted(true); // Atualizar o estado para indicar que o formulário foi enviado com sucesso
     } else {
@@ -67,7 +77,8 @@ const Form = () => {
   // Função para lidar com o retorno ao formulário
   const handleReturnToForm = () => {
     setFormSubmitted(false); // Resetar o estado de submissão do formulário
-    setFormData({ // Limpar os campos do formulário
+    setFormData({
+      // Limpar os campos do formulário
       nomeRelator: "",
       tituloOcorrencia: "",
       descricaoOcorrencia: "",
@@ -88,7 +99,7 @@ const Form = () => {
           <div className="row">
             <div className="col-lg-6">
               <Input
-                label="Nome do Relator"
+                label="Nome do Relator*"
                 type="text"
                 name="nomeRelator"
                 value={formData.nomeRelator}
@@ -96,7 +107,7 @@ const Form = () => {
                 required
               />
               <Input
-                label="Título da Ocorrência"
+                label="Título da Ocorrência*"
                 type="text"
                 name="tituloOcorrencia"
                 value={formData.tituloOcorrencia}
@@ -105,23 +116,9 @@ const Form = () => {
               />
 
               <Select onEnderecoSelecionado={handleEnderecoSelecionado} />
-            </div>
-            <div className="col-lg-6">
-              <FileUpload
-                label="Upload de Evidências"
-                onChange={handleFileChange}
-                required
-              />
-              <TextArea
-                label="Descrição da Ocorrência"
-                name="descricaoOcorrencia"
-                value={formData.descricaoOcorrencia}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="col-lg-6">
+
               <Input
-                label="Data da Ocorrência"
+                label="Data da Ocorrência*"
                 type="date"
                 name="dataOcorrencia"
                 value={formData.dataOcorrencia}
@@ -136,14 +133,29 @@ const Form = () => {
               />
             </div>
             <div className="col-lg-6">
-              {/* Select para o Centro de Distribuição */}
-              {/* FileUpload para as Evidências */}
+              <TextArea
+                label="Descrição da Ocorrência*"
+                name="descricaoOcorrencia"
+                value={formData.descricaoOcorrencia}
+                onChange={handleChange}
+              />
+              {descriptionError && (
+                <p className="error-message">
+                  A descrição deve ter no mínimo 5 caracteres.
+                </p>
+              )}
 
               <TextArea
                 label="Observação da Ocorrência"
                 name="observacaoOcorrencia"
                 value={formData.observacaoOcorrencia}
                 onChange={handleChange}
+              />
+
+              <FileUpload
+                label="Upload de Evidências*"
+                onChange={handleFileChange}
+                required
               />
             </div>
           </div>
@@ -155,7 +167,7 @@ const Form = () => {
             </div>
           )}
 
-          <button className="button-primary" type="submit">
+          <button className="button-primary submit-button" type="submit">
             Enviar
           </button>
         </form>
@@ -163,7 +175,9 @@ const Form = () => {
       {formSubmitted && (
         <div>
           <p className="success-message">Formulário enviado com sucesso!</p>
-          <button className="button-primary" onClick={handleReturnToForm}>Adicionar outra ocorrência</button>
+          <button className="button-primary" onClick={handleReturnToForm}>
+            Adicionar outra ocorrência
+          </button>
         </div>
       )}
     </>

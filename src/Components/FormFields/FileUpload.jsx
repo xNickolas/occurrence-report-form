@@ -1,31 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 10 MB
 
 const FileUpload = ({ label, onChange }) => {
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
   const [error, setError] = useState('');
+  const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile && selectedFile.size <= MAX_FILE_SIZE) {
-      setFile(selectedFile);
-      onChange(selectedFile);
-      setError('');
-    } else {
-      setFile(null);
-      onChange(null);
-      setError(`O arquivo selecionado excede o limite de tamanho de ${MAX_FILE_SIZE / (1024 * 1024)} MB.`);
+    const selectedFiles = e.target.files;
+    let newFiles = [];
+    let newError = '';
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+      const file = selectedFiles[i];
+      if (file.size <= MAX_FILE_SIZE) {
+        newFiles.push(file);
+      } else {
+        newError = `O arquivo ${file.name} excede o limite de tamanho de ${MAX_FILE_SIZE / (1024 * 1024)} MB.`;
+      }
     }
+
+    setFiles(newFiles);
+    onChange(newFiles);
+    setError(newError);
+  };
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleRemoveFile = (index) => {
+    const newFiles = [...files];
+    newFiles.splice(index, 1);
+    setFiles(newFiles);
+    onChange(newFiles);
   };
 
   return (
     <div className='form-group'>
-      <label>{label}</label>
-      <input type="file" onChange={handleFileChange} accept=".jpg, .jpeg, .png, .pdf" />
-      {file && (
-        <div>
-          <p>Arquivo selecionado: {file.name}</p>
+      <label className='form-label'>{label}</label>
+      <div className="custom-file-upload">
+        <input type="file" onChange={handleFileChange} accept=".jpg, .jpeg, .png, .pdf" multiple ref={fileInputRef} style={{ display: 'none' }} />
+        <button onClick={handleButtonClick}>Selecionar Arquivos</button>
+      </div>
+      {files.length > 0 && (
+        <div className='files-uploaded'>
+          <p>Arquivos selecionados:</p>
+          <ul>
+            {files.map((file, index) => (
+              <li key={index}>
+                {file.name}
+                <button onClick={() => handleRemoveFile(index)}>Remover</button>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
       {error && (

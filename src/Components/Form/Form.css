@@ -1,0 +1,134 @@
+.form-group {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+.form-group:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.error-message {
+    margin: 0 0 1.5em 0;
+    font-size: 14px;
+    color: red;
+}
+
+.form-label {
+  color: rgba(0, 0, 0, 0.9);
+  cursor: text;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.0714285714em;
+  margin: 0 0 0.4285714286em 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform: unset !important;
+  transition: 0.2s ease-out;
+  transition-property: color;
+  white-space: nowrap;
+}
+
+.form-control {
+  display: block;
+  flex-grow: 1;
+  width: 100%;
+  height: auto;
+  padding: 0.8125em 0.75em;
+  font-size: 16px;
+  line-height: 22px;
+  color: #333;
+
+  outline: none;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375em;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+input:focus {
+  border: 2px solid #3483fa;
+  outline: none;
+}
+
+textarea.form-control {
+  min-height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2));
+}
+
+.form-address-check {
+    margin-top: 1rem;
+}
+
+.input-check-label {
+    margin-top: 1rem !important;
+    margin-left: 0.5rem !important;
+    font-size: 14px;
+}
+
+.form-search {
+    position: relative;
+    display: flex;
+}
+
+.search-button {
+    position: absolute;
+    right: 0;
+    top: -4px;
+    background-color: transparent;
+    border-color: transparent;
+    color: #3483fa;
+    display: inline-block;
+    line-height: 1;
+    width: auto;
+    box-shadow: 0 0 0 0 #fff;
+    cursor: pointer;
+    padding: 0 16px;
+    font-size: 16px;
+    height: 48px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+.custom-file-upload {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  display: block;
+}
+
+.custom-file-upload input[type="file"] {
+  position: absolute;
+  font-size: 100px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.custom-file-upload button {
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-file-upload button:hover {
+  background-color: #45a049;
+}
+
+.files-uploaded {
+    height: 50px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.submit-button {
+    margin-top: 2rem;
+}
