@@ -7,6 +7,7 @@ const AddressSearch = ({ onAddressSelected }) => {
   const [cep, setCep] = useState("");
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(null);
+  const [invalidCep, setInvalidCep] = useState(false); // State to track invalid ZIP code
 
   const handleCepChange = (e) => {
     const { value } = e.target;
@@ -21,13 +22,16 @@ const AddressSearch = ({ onAddressSelected }) => {
       if (!data.erro) {
         setAddresses([data]);
         setSelectedAddress(null);
+        setInvalidCep(false); // Reset invalid ZIP code state
       } else {
         console.error("CEP not found");
         setAddresses([]);
         setSelectedAddress(null);
+        setInvalidCep(true); // Set invalid ZIP code state
       }
     } catch (error) {
       console.error("Error fetching address:", error);
+      setInvalidCep(true); // Set invalid ZIP code state
     }
   };
 
@@ -50,6 +54,13 @@ const AddressSearch = ({ onAddressSelected }) => {
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>
+
+      {/* Display error message if ZIP code is invalid */}
+      {invalidCep && (
+        <div>
+          <p className="error-message">CEP inválido.</p>
+        </div>
+      )}
 
       {addresses.length > 0 && (
         <div className="form-address-check">

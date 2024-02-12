@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 10 MB
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 
 const FileUpload = ({ label, onChange }) => {
   const [files, setFiles] = useState([]);
@@ -29,7 +29,9 @@ const FileUpload = ({ label, onChange }) => {
   };
 
   const handleButtonClick = () => {
-    fileInputRef.current.click();
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
 
   const handleRemoveFile = (index) => {
@@ -43,8 +45,15 @@ const FileUpload = ({ label, onChange }) => {
     <div className='form-group'>
       <label className='form-label'>{label}</label>
       <div className="custom-file-upload">
-        <input type="file" onChange={handleFileChange} accept=".jpg, .jpeg, .png, .pdf" multiple ref={fileInputRef} style={{ display: 'none' }} />
-        <button onClick={handleButtonClick}>Selecionar Arquivos</button>
+        <input
+          type="file"
+          onChange={handleFileChange}
+          accept=".jpg, .jpeg, .png, .pdf"
+          multiple
+          ref={fileInputRef}
+          style={{ display: 'none' }}
+        />
+        <button type="button" onClick={handleButtonClick}>Selecionar Arquivos</button>
       </div>
       {files.length > 0 && (
         <div className='files-uploaded'>

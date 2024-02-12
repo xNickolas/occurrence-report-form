@@ -38,6 +38,18 @@
   position: relative;
 }
 
+@media screen and (max-width: 481px) {
+  .cards-container {
+    padding: 0 10px !important;
+    position: unset !important;
+    transform: none !important;
+  }
+
+  .cards-group {
+    flex-direction: column !important;
+  }
+}
+
 .cards-container {
   display: flex;
   justify-content: space-between;
@@ -68,6 +80,18 @@
   border-radius: 8px;
   max-height: 80%; /* Defina uma altura máxima para a modal */
   overflow-y: auto; /* Permita rolagem vertical quando necessário */
+}
+
+@media screen and (max-width: 481px) {
+  .modal {
+    padding: 10px !important;
+    width: 90% !important;
+  }
+
+  .mfp-content img {
+    max-height: 493px;
+    width: 100%;
+  }
 }
 
 .overlay {
@@ -150,7 +174,7 @@
 .evidence-link {
   cursor: pointer;
   margin-right: 0.3em;
-  color: #3483FA;
+  color: #3483fa;
 }
 .evidence-link:hover {
   cursor: pointer;
@@ -206,7 +230,7 @@
   text-align: right;
   font-size: 22px;
   text-decoration: none;
-  opacity: .65;
+  opacity: 0.65;
   padding: 0 0 18px 10px;
   color: #fff;
 }

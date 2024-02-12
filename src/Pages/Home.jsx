@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faUserCircle, faClipboard, faChartBar } from "@fortawesome/free-regular-svg-icons";
 import "../Pages/Pages.css";
 import Card from "../Components/Card/Card";
 
@@ -22,7 +22,7 @@ const Home = () => {
           <div className="cards-group">
             <Card
               title="Entre na sua conta"
-              icon={faUser}
+              icon={faUserCircle}
               text="Faça login na sua conta para acessar todos os recursos da plataforma e registrar ocorrências."
               buttonText="Entrar na sua conta"
               to="/"
@@ -30,7 +30,7 @@ const Home = () => {
             <Link className="card-link" to="/occurrence-report">
               <Card
                 title="Registro de ocorrência"
-                icon={faUser}
+                icon={faClipboard}
                 text="Registre uma nova ocorrência relatando todos os detalhes relevantes para uma gestão eficiente."
                 buttonText="Registrar ocorrência"
                 to="/occurrence-report"
@@ -39,7 +39,7 @@ const Home = () => {
             <Link className="card-link" to="/statistics">
               <Card
                 title="Estatísticas"
-                icon={faUser}
+                icon={faChartBar}
                 text="Acesse as estatísticas e análises das ocorrências registradas para melhorar os processos de distribuição."
                 buttonText="Visualizar ocorrências"
                 to="/statistics"
