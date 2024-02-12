@@ -1,10 +1,4 @@
-@media (min-width: 991px) {
-  .hero {
-    align-items: center;
-    height: 95vh;
-    justify-content: center;
-  }
-}
+
 .hero {
   background: linear-gradient(180deg, #fff48e 8.33%, #ffd100);
   justify-content: center;
@@ -37,42 +31,16 @@
   font-weight: 500;
 }
 
-@media (max-width: 576px) {
-  .hero {
-    padding-left: 3%;
-    padding-right: 3%;
-  }
-}
-
 .hero-image {
   max-width: 100%;
   width: 80%;
+  filter: drop-shadow(0 0 0.4rem rgba(39, 39, 39, 0.545));
 }
 
 .info {
   position: relative;
 }
 
-@media screen and (max-width: 768px) {
-  .hero {
-    background: #fff159;
-    background: linear-gradient(
-      180deg,
-      #fff159 0%,
-      rgba(235, 235, 235, 1) 100%
-    );
-  }
-
-  .cards-container {
-    padding: 0 10px !important;
-    position: unset !important;
-    transform: none !important;
-  }
-
-  .cards-group {
-    flex-direction: column !important;
-  }
-}
 
 .cards-container {
   display: flex;
@@ -106,17 +74,7 @@
   overflow-y: auto; /* Permita rolagem vertical quando necessário */
 }
 
-@media screen and (max-width: 481px) {
-  .modal {
-    padding: 10px !important;
-    width: 90% !important;
-  }
 
-  .mfp-content img {
-    max-height: 493px;
-    width: 100%;
-  }
-}
 
 .overlay {
   position: fixed;
@@ -322,4 +280,59 @@ img.mfp-img {
 
 .border-top-thin {
   border-top: 1px solid #cacaca;
+}
+
+
+@media (min-width: 991px) {
+  .hero {
+    align-items: center;
+    height: 95vh;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-image {
+    display: none;
+  }
+
+  .hero {
+    height: 100vh;
+    background: #fff159;
+    background: linear-gradient(
+      180deg,
+      #fff159 0%,
+      rgba(235, 235, 235, 1) 100%
+    );
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero h1 {
+      font-size: 46px;
+      line-height: 1;
+  }
+
+
+  .cards-container {
+    padding: 0 10px !important;
+    position: unset !important;
+    transform: none !important;
+  }
+
+  .cards-group {
+    flex-direction: column !important;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .modal {
+    padding: 10px !important;
+    width: 90% !important;
+  }
+
+  .mfp-content img {
+    max-height: 493px;
+    width: 100%;
+  }
 }

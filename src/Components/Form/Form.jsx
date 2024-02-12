@@ -1,4 +1,3 @@
-// Form.jsx
 import React, { useState } from "react";
 import "../Form/Form.css";
 import { useOccurrenceContext } from "../../contexts/OccurrenceContext";

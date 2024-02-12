@@ -21,10 +21,10 @@ Este é um projeto de um sistema para registrar e gerenciar ocorrências em cent
    ```
 
 2. Navegue até o diretório do projeto:
-cd occurrence-report-form
+```cd occurrence-report-form```
 
 3. Instale as dependências do projeto:
-npm install
+```npm install```
 
 ## Como Usar
 
