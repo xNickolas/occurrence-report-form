@@ -62,6 +62,11 @@ textarea.form-control {
   min-height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2));
 }
 
+textarea:focus {
+  border: 2px solid #3483fa;
+  outline: none;
+}
+
 .input-check-label {
   margin-top: 1rem !important;
   margin-left: 0.5rem !important;
@@ -163,4 +168,9 @@ textarea.form-control {
 
 .submit-button {
   margin-top: 2rem;
+}
+
+
+.form-end-message p {
+ margin-bottom: 1rem;
 }

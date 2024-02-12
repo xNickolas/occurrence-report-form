@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { faUserCircle, faClipboard, faChartBar } from "@fortawesome/free-regular-svg-icons";
+import {
+  faUserCircle,
+  faClipboard,
+  faChartBar,
+} from "@fortawesome/free-regular-svg-icons";
+import heroImage from "../assets/cd-mercadolivre.png";
 import "./Pages.css";
 import Card from "../components/Card/Card";
 
@@ -9,15 +14,29 @@ const Home = () => {
     <main>
       <section className="hero">
         <div className="container">
-          <div>
-            <h1>Registro de Ocorrências em Centros de Distribuição</h1>
-            <p>
-              Bem-vindo à nossa plataforma, onde você pode registrar e consultar ocorrências em tempo real em centros de distribuição.
-            </p>
+          <div className="row">
+            <div className="col-lg-7 d-flex align-items-center">
+              <div>
+                <h1>Ocorrências em Centros de Distribuição</h1>
+                <p>
+                  Bem-vindo à nossa plataforma, onde você pode registrar e
+                  consultar ocorrências em tempo real em centros de
+                  distribuição.
+                </p>
+                <Link className="card-link" to="/occurrence-report">
+                  <button className="button-primary">
+                    Registrar uma ocorrência
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className="col-lg-5 d-flex align-items-center justify-center">
+              <img className="hero-image" src={heroImage} alt="Logo" />
+            </div>
           </div>
         </div>
       </section>
-      <section className="info">
+      <section className="info d-none">
         <div className="cards-container">
           <div className="cards-group">
             <Card

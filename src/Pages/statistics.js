@@ -49,9 +49,9 @@ const Statistics = () => {
             {occurrences.map((occurrence, index) => (
               <div key={index} className="occurrence-card border-top-thin">
                 <div>
-                  <h3>Relator: {occurrence.rapporteurName}</h3>
-                  <span>Data: {occurrence.occurrenceDate} | </span>
-                  <span>Título: {occurrence.occurrenceTitle}</span>
+                  <h3>{occurrence.rapporteurName}</h3>
+                  <span><span className="modal-span">{occurrence.occurrenceTitle}</span> | </span>
+                  <span>{occurrence.occurrenceDate}</span>
                 </div>
                 <div>
                   <button
@@ -79,20 +79,20 @@ const Statistics = () => {
               <div className="modal-header">
                 <h5 className="modal-title">Detalhes da Ocorrência</h5>
                 <button onClick={closeModal}>
-                  <FontAwesomeIcon icon={faTimes} />
+                  <FontAwesomeIcon className="close-button" icon={faTimes} />
                 </button>
               </div>
               <div className="modal-body">
                 {selectedOccurrence && (
                   <div>
-                    <h3>
-                      Nome do relator: {selectedOccurrence.rapporteurName}
-                    </h3>
                     <p>
-                      Título da Ocorrência: {selectedOccurrence.occurrenceTitle}
+                      <span className="modal-span">Nome do relator:</span> {selectedOccurrence.rapporteurName}
                     </p>
                     <p>
-                      Endereço:{" "}
+                      <span className="modal-span">Título da Ocorrência:</span> {selectedOccurrence.occurrenceTitle}
+                    </p>
+                    <p>
+                      <span className="modal-span">Endereço:</span> {" "}
                       {selectedOccurrence.occurrenceAddress && (
                         <>
                           {`${selectedOccurrence.occurrenceAddress.logradouro}, ${selectedOccurrence.occurrenceAddress.bairro}, ${selectedOccurrence.occurrenceAddress.localidade} - ${selectedOccurrence.occurrenceAddress.uf}`} -{" "}
@@ -101,20 +101,20 @@ const Statistics = () => {
                       )}
                     </p>
                     <p>
-                      Data da Ocorrência: {selectedOccurrence.occurrenceDate}
+                      <span className="modal-span">Data da Ocorrência:</span> {selectedOccurrence.occurrenceDate}
                     </p>
                     <p>
-                      Data de Encerramento da Ocorrência:{" "}
-                      {selectedOccurrence.closingDate}
+                      <span className="modal-span">Data de Encerramento da Ocorrência:</span> {" "} {selectedOccurrence.closingDate}
                     </p>
                     <p>
-                      Descrição da Ocorrência:{" "}
-                      {selectedOccurrence.occurrenceDescription}
+                      <span className="modal-span">Descrição da Ocorrência:</span> {" "} {selectedOccurrence.occurrenceDescription}
                     </p>
                     <p>
-                      Observação da Ocorrência: {selectedOccurrence.observation}
+                      <span className="modal-span">Observação da Ocorrência:</span> {selectedOccurrence.observation}
                     </p>
-                    <p>Evidências:</p>
+                    <p>
+                      <span className="modal-span">Evidências:</span>
+                    </p>
                     <div className="image-container">
                       {selectedOccurrence.evidence &&
                         selectedOccurrence.evidence.map((evidence, index) => (

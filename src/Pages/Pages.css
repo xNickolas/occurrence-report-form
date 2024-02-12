@@ -1,30 +1,40 @@
+@media (min-width: 991px) {
+  .hero {
+    align-items: center;
+    height: 95vh;
+    justify-content: center;
+  }
+}
 .hero {
-  position: relative;
-  margin: 0;
+  background: linear-gradient(180deg, #fff48e 8.33%, #ffd100);
+  justify-content: center;
   overflow: hidden;
-  background: #ffe600;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 230, 0, 1) 0%,
-    rgba(235, 235, 235, 1) 100%
-  );
-  min-height: 35vh;
+}
+.hero {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero h1 {
-  font-family: Proxima Nova, -apple-system, Roboto, Arial, sans-serif;
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 5.3846153846rem;
+  line-height: 5rem;
+
   color: #333;
+  letter-spacing: -0.0246153846rem;
+  margin-bottom: 2.4615384615rem;
 }
 
 .hero p {
-  font-size: 19px;
-  font-weight: 300;
-  letter-spacing: 0.3px;
-  line-height: 1.5em;
-  margin: 0;
-  color: #333;
+  color: #0c0c0c;
+  font-size: 1.1384615385rem;
+  line-height: 1.5384615385rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.hero button {
+  font-weight: 500;
 }
 
 @media (max-width: 576px) {
@@ -32,6 +42,11 @@
     padding-left: 3%;
     padding-right: 3%;
   }
+}
+
+.hero-image {
+  max-width: 100%;
+  width: 80%;
 }
 
 .info {
@@ -47,7 +62,7 @@
       rgba(235, 235, 235, 1) 100%
     );
   }
-  
+
   .cards-container {
     padding: 0 10px !important;
     position: unset !important;
@@ -86,7 +101,7 @@
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 4px;
   max-height: 80%; /* Defina uma altura máxima para a modal */
   overflow-y: auto; /* Permita rolagem vertical quando necessário */
 }
@@ -136,13 +151,14 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  border-top-left-radius: calc(0.3rem - 1px);
-  border-top-right-radius: calc(0.3rem - 1px);
   margin-bottom: 2em;
 }
 
 .modal-title {
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
 }
 
 .modal-header button {
@@ -157,9 +173,27 @@
   font-size: 22px;
 }
 
+.modal-header .close-button {
+  color: #3483fa;
+}
+
 .modal-body {
   position: relative;
   flex: 1 1 auto;
+}
+
+.modal-span {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.modal-body p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.55);
+  font-weight: 400;
+  line-height: 0;
+  margin: 8px 0 24px;
 }
 
 .occurrence-card {
@@ -182,6 +216,7 @@
 
 .evidence-link {
   cursor: pointer;
+  font-size: 14px;
   margin-right: 0.3em;
   color: #3483fa;
 }

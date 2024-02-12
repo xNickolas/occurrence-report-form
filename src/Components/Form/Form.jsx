@@ -1,9 +1,10 @@
+// Form.jsx
 import React, { useState } from "react";
 import "../Form/Form.css";
 import { useOccurrenceContext } from "../../contexts/OccurrenceContext";
-import Input from "../FormFields/Input";
+import Input from "../FormFields/Input/Input";
 import TextArea from "../FormFields/TextArea";
-import Select from "../FormFields/SelectAddress";
+import SelectAddress from "../FormFields/SelectAddress";
 import FileUpload from "../FormFields/FileUpload";
 
 const Form = () => {
@@ -92,7 +93,7 @@ const Form = () => {
   return (
     <>
       {!formSubmitted && (
-        <form onSubmit={(e) => handleSubmit(e, addOccurrence)}>
+        <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-lg-6">
               <Input
@@ -112,7 +113,7 @@ const Form = () => {
                 required
               />
 
-              <Select onAddressSelected={handleAddressSelected} />
+              <SelectAddress onAddressSelected={handleAddressSelected} />
 
               <div className="row">
                 <div className="col-lg-6">
@@ -176,7 +177,7 @@ const Form = () => {
         </form>
       )}
       {formSubmitted && (
-        <div>
+        <div className="form-end-message">
           <p className="success-message">Formulário enviado com sucesso!</p>
           <button className="button-primary" onClick={handleReturnToForm}>
             Adicionar outra ocorrência
