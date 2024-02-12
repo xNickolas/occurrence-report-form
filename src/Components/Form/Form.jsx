@@ -10,61 +10,61 @@ const Form = () => {
   const { addOccurrence } = useOccurrenceContext();
 
   const [formData, setFormData] = useState({
-    nomeRelator: "",
-    tituloOcorrencia: "",
-    descricaoOcorrencia: "",
-    enderecoOcorrencia: null,
-    centroDistribuicao: "",
-    evidencias: null,
-    dataOcorrencia: "",
-    dataEncerramento: "",
-    observacao: "",
+    rapporteurName: "",
+    occurrenceTitle: "",
+    occurrenceDescription: "",
+    occurrenceAddress: null,
+    distributionCenter: "",
+    evidence: null,
+    occurrenceDate: "",
+    closingDate: "",
+    observation: "",
   });
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [fileUploaded, setFileUploaded] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [descriptionError, setDescriptionError] = useState(false);
 
-  // Handlers para atualizar o estado do formulário
+  // Handlers to update the form state
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
-    if (name === "descricaoOcorrencia") {
+    if (name === "occurrenceDescription") {
       setDescriptionError(value.length < 5);
     }
   };
 
-  const handleEnderecoSelecionado = (endereco) => {
+  const handleAddressSelected = (address) => {
     setFormData((prevState) => ({
       ...prevState,
-      enderecoOcorrencia: endereco,
+      occurrenceAddress: address,
     }));
   };
 
   const handleFileChange = (file) => {
     setFormData((prevState) => ({
       ...prevState,
-      evidencias: file, // Atualize o estado com o arquivo selecionado
+      evidence: file,
     }));
     setFileUploaded(true);
   };
 
-  // Submissão do formulário
+  // Form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowErrorMessage(false); // Limpa mensagens de erro anteriores
+    setShowErrorMessage(false);
     if (
-      formData.nomeRelator &&
-      formData.tituloOcorrencia &&
-      formData.descricaoOcorrencia &&
-      formData.enderecoOcorrencia &&
-      formData.dataOcorrencia &&
+      formData.rapporteurName &&
+      formData.occurrenceTitle &&
+      formData.occurrenceDescription &&
+      formData.occurrenceAddress &&
+      formData.occurrenceDate &&
       fileUploaded
     ) {
-      console.log("Formulário submetido com sucesso:", formData);
+      console.log("Form submitted successfully:", formData);
       addOccurrence(formData);
       setFormSubmitted(true);
     } else {
@@ -72,19 +72,19 @@ const Form = () => {
     }
   };
 
-  // Função para lidar com o retorno ao formulário
+  // Handle returning to the form
   const handleReturnToForm = () => {
     setFormSubmitted(false);
     setFormData({
-      nomeRelator: "",
-      tituloOcorrencia: "",
-      descricaoOcorrencia: "",
-      enderecoOcorrencia: null,
-      centroDistribuicao: "",
-      evidencias: null,
-      dataOcorrencia: "",
-      dataEncerramento: "",
-      observacao: "",
+      rapporteurName: "",
+      occurrenceTitle: "",
+      occurrenceDescription: "",
+      occurrenceAddress: null,
+      distributionCenter: "",
+      evidence: null,
+      occurrenceDate: "",
+      closingDate: "",
+      observation: "",
     });
     setFileUploaded(false);
   };
@@ -96,44 +96,44 @@ const Form = () => {
           <div className="row">
             <div className="col-lg-6">
               <Input
-                label="Nome do Relator*"
+                label="Nome do relator*"
                 type="text"
-                name="nomeRelator"
-                value={formData.nomeRelator}
+                name="rapporteurName"
+                value={formData.rapporteurName}
                 onChange={handleChange}
                 required
               />
               <Input
                 label="Título da Ocorrência*"
                 type="text"
-                name="tituloOcorrencia"
-                value={formData.tituloOcorrencia}
+                name="occurrenceTitle"
+                value={formData.occurrenceTitle}
                 onChange={handleChange}
                 required
               />
 
-              <Select onEnderecoSelecionado={handleEnderecoSelecionado} />
+              <Select onAddressSelected={handleAddressSelected} />
 
               <Input
                 label="Data da Ocorrência*"
                 type="date"
-                name="dataOcorrencia"
-                value={formData.dataOcorrencia}
+                name="occurrenceDate"
+                value={formData.occurrenceDate}
                 onChange={handleChange}
               />
               <Input
                 label="Data de Encerramento da Ocorrência"
                 type="date"
-                name="dataEncerramento"
-                value={formData.dataEncerramento}
+                name="closingDate"
+                value={formData.closingDate}
                 onChange={handleChange}
               />
             </div>
             <div className="col-lg-6">
               <TextArea
                 label="Descrição da Ocorrência*"
-                name="descricaoOcorrencia"
-                value={formData.descricaoOcorrencia}
+                name="occurrenceDescription"
+                value={formData.occurrenceDescription}
                 onChange={handleChange}
               />
               {descriptionError && (
@@ -144,14 +144,13 @@ const Form = () => {
 
               <TextArea
                 label="Observação da Ocorrência"
-                name="observacaoOcorrencia"
-                value={formData.observacaoOcorrencia}
+                name="observation"
+                value={formData.observation}
                 onChange={handleChange}
               />
 
               <FileUpload
-                label="Upload de Evidências* (JPG,
-                  PNG e PDF)"
+                label="Upload de Evidências* (JPG, PNG e PDF)"
                 onChange={handleFileChange}
                 required
               />

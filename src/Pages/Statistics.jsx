@@ -49,9 +49,9 @@ const Statistics = () => {
             {occurrences.map((occurrence, index) => (
               <div key={index} className="occurrence-card border-top-thin">
                 <div>
-                  <h3>Relator: {occurrence.nomeRelator}</h3>
-                  <span>Data: {occurrence.dataOcorrencia} | </span>
-                  <span>Título: {occurrence.tituloOcorrencia}</span>
+                  <h3>Relator: {occurrence.rapporteurName}</h3>
+                  <span>Data: {occurrence.occurrenceDate} | </span>
+                  <span>Título: {occurrence.occurrenceTitle}</span>
                 </div>
                 <div>
                   <button
@@ -86,35 +86,39 @@ const Statistics = () => {
               <div className="modal-body">
                 {selectedOccurrence && (
                   <div>
-                    <h3>Nome do relator: {selectedOccurrence.nomeRelator}</h3>
+                    <h3>
+                      Nome do relator: {selectedOccurrence.rapporteurName}
+                    </h3>
                     <p>
-                      Título da Ocorrência:{" "}
-                      {selectedOccurrence.tituloOcorrencia}
+                      Título da Ocorrência: {selectedOccurrence.occurrenceTitle}
                     </p>
                     <p>
-                      CEP:{" "}
-                      {selectedOccurrence.enderecoOcorrencia &&
-                        selectedOccurrence.enderecoOcorrencia.cep}
+                      Endereço:{" "}
+                      {selectedOccurrence.occurrenceAddress && (
+                        <>
+                          {`${selectedOccurrence.occurrenceAddress.logradouro}, ${selectedOccurrence.occurrenceAddress.bairro}, ${selectedOccurrence.occurrenceAddress.localidade} - ${selectedOccurrence.occurrenceAddress.uf}`} -{" "}
+                          {selectedOccurrence.occurrenceAddress.cep}
+                        </>
+                      )}
                     </p>
                     <p>
-                      Data da Ocorrência: {selectedOccurrence.dataOcorrencia}
+                      Data da Ocorrência: {selectedOccurrence.occurrenceDate}
                     </p>
                     <p>
                       Data de Encerramento da Ocorrência:{" "}
-                      {selectedOccurrence.dataEncerramento}
+                      {selectedOccurrence.closingDate}
                     </p>
                     <p>
                       Descrição da Ocorrência:{" "}
-                      {selectedOccurrence.descricaoOcorrencia}
+                      {selectedOccurrence.occurrenceDescription}
                     </p>
                     <p>
-                      Observação da Ocorrência:{" "}
-                      {selectedOccurrence.observacaoOcorrencia}
+                      Observação da Ocorrência: {selectedOccurrence.observation}
                     </p>
                     <p>Evidências:</p>
                     <div className="image-container">
-                      {selectedOccurrence.evidencias &&
-                        selectedOccurrence.evidencias.map((evidence, index) => (
+                      {selectedOccurrence.evidence &&
+                        selectedOccurrence.evidence.map((evidence, index) => (
                           // <img
                           //   key={index}
                           //   src={URL.createObjectURL(evidence)}

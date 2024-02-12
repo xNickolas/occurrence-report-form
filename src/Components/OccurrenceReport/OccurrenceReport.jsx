@@ -2,7 +2,7 @@ import React from "react";
 import "../OccurrenceReport/OccurrenceReport.css";
 import Form from "../Form/Form";
 
-const OccurrenceReport = ({ occurrenceData }) => {
+const OccurrenceReport = () => {
   return (
     <section className="form">
       <div className="container form-wrapper">

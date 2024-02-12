@@ -3,37 +3,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const EnderecoCEP = ({ onEnderecoSelecionado }) => {
+const AddressSearch = ({ onAddressSelected }) => {
   const [cep, setCep] = useState("");
-  const [enderecos, setEnderecos] = useState([]);
-  const [enderecoSelecionado, setEnderecoSelecionado] = useState(null);
+  const [addresses, setAddresses] = useState([]);
+  const [selectedAddress, setSelectedAddress] = useState(null);
 
   const handleCepChange = (e) => {
     const { value } = e.target;
     setCep(value);
   };
 
-  const buscarEndereco = async () => {
+  const searchAddress = async () => {
     try {
       const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
       const { data } = response;
 
       if (!data.erro) {
-        setEnderecos([data]);
-        setEnderecoSelecionado(null);
+        setAddresses([data]);
+        setSelectedAddress(null);
       } else {
-        console.error("CEP não encontrado");
-        setEnderecos([]);
-        setEnderecoSelecionado(null);
+        console.error("CEP not found");
+        setAddresses([]);
+        setSelectedAddress(null);
       }
     } catch (error) {
-      console.error("Erro ao buscar endereço:", error);
+      console.error("Error fetching address:", error);
     }
   };
 
-  const handleEnderecoSelecionado = (endereco) => {
-    setEnderecoSelecionado(endereco);
-    onEnderecoSelecionado(endereco);
+  const handleAddressSelected = (address) => {
+    setSelectedAddress(address);
+    onAddressSelected(address);
   };
 
   return (
@@ -46,27 +46,27 @@ const EnderecoCEP = ({ onEnderecoSelecionado }) => {
           value={cep}
           onChange={handleCepChange}
         />
-        <button className="search-button" onClick={buscarEndereco}>
+        <button className="search-button" onClick={searchAddress}>
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>
 
-      {enderecos.length > 0 && (
+      {addresses.length > 0 && (
         <div className="form-address-check">
           <label className="form-label">Selecione um endereço:</label>
-          {enderecos.map((endereco, index) => (
-            <div key={endereco.cep}>
+          {addresses.map((address, index) => (
+            <div key={address.cep}>
               <input
                 className="form-check-input"
                 type="radio"
-                id={`endereco-${index}`}
-                name="endereco"
-                value={endereco.logradouro}
-                checked={endereco === enderecoSelecionado}
-                onChange={() => handleEnderecoSelecionado(endereco)}
+                id={`address-${index}`}
+                name="address"
+                value={address.logradouro}
+                checked={address === selectedAddress}
+                onChange={() => handleAddressSelected(address)}
               />
-              <label className="input-check-label" htmlFor={`endereco-${index}`}>
-                {`${endereco.logradouro}, ${endereco.bairro}, ${endereco.localidade} - ${endereco.uf}`}
+              <label className="input-check-label" htmlFor={`address-${index}`}>
+                {`${address.logradouro}, ${address.bairro}, ${address.localidade} - ${address.uf}`}
               </label>
             </div>
           ))}
@@ -76,4 +76,4 @@ const EnderecoCEP = ({ onEnderecoSelecionado }) => {
   );
 };
 
-export default EnderecoCEP;
+export default AddressSearch;

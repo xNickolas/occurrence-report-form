@@ -19,7 +19,7 @@ const FileUpload = ({ label, onChange }) => {
       if (file.size <= MAX_FILE_SIZE) {
         newFiles.push(file);
       } else {
-        newError = `O arquivo ${file.name} excede o limite de tamanho de ${MAX_FILE_SIZE / (1024 * 1024)} MB.`;
+        newError = `The file ${file.name} exceeds the size limit of ${MAX_FILE_SIZE / (1024 * 1024)} MB.`;
       }
     }
 
