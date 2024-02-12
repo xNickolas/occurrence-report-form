@@ -5,9 +5,9 @@ const TextArea = ({ label, name, value, onChange }) => {
     <div className='form-group'>
       <label className='form-label'>{label}</label>
       <textarea className='form-control' 
-      rows={4} 
-      name={name} 
-      value={value} 
+      rows={4}
+      name={name}
+      value={value}
       onChange={onChange} />
     </div>
   );

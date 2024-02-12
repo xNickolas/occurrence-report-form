@@ -9,7 +9,7 @@ const Input = ({ label, type, name, value, onChange }) => {
         type={type} 
         name={name} 
         value={value} 
-        onChange={onChange} // Adicionado o atributo required
+        onChange={onChange}
       />
     </div>
   );

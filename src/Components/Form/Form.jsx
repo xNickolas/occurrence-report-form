@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../Form/Form.css";
-import { useOccurrenceContext } from "../../Contexts/OccurrenceContext";
+import { useOccurrenceContext } from "../../contexts/OccurrenceContext";
 import Input from "../FormFields/Input";
 import TextArea from "../FormFields/TextArea";
 import Select from "../FormFields/SelectAddress";
@@ -92,7 +92,7 @@ const Form = () => {
   return (
     <>
       {!formSubmitted && (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e, addOccurrence)}>
           <div className="row">
             <div className="col-lg-6">
               <Input
@@ -114,19 +114,31 @@ const Form = () => {
 
               <Select onAddressSelected={handleAddressSelected} />
 
-              <Input
-                label="Data da Ocorrência*"
-                type="date"
-                name="occurrenceDate"
-                value={formData.occurrenceDate}
-                onChange={handleChange}
-              />
-              <Input
-                label="Data de Encerramento da Ocorrência"
-                type="date"
-                name="closingDate"
-                value={formData.closingDate}
-                onChange={handleChange}
+              <div className="row">
+                <div className="col-lg-6">
+                  <Input
+                    label="Data da Ocorrência*"
+                    type="date"
+                    name="occurrenceDate"
+                    value={formData.occurrenceDate}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <Input
+                    label="Encerramento da Ocorrência"
+                    type="date"
+                    name="closingDate"
+                    value={formData.closingDate}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <FileUpload
+                label="Upload de Evidências* (JPG, PNG e PDF)"
+                onChange={handleFileChange}
+                required
               />
             </div>
             <div className="col-lg-6">
@@ -147,12 +159,6 @@ const Form = () => {
                 name="observation"
                 value={formData.observation}
                 onChange={handleChange}
-              />
-
-              <FileUpload
-                label="Upload de Evidências* (JPG, PNG e PDF)"
-                onChange={handleFileChange}
-                required
               />
             </div>
           </div>

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import "../Pages/Pages.css";
+import "./Pages.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { useOccurrenceContext } from "../Contexts/OccurrenceContext";
+import { useOccurrenceContext } from "../contexts/OccurrenceContext";
 
 const Statistics = () => {
   const { occurrences } = useOccurrenceContext();
@@ -70,12 +70,11 @@ const Statistics = () => {
           isOpen={isModalOpen}
           onRequestClose={closeModal}
           contentLabel="Detalhes da Ocorrência"
-          className="modal" // Adicione uma classe CSS à modal
-          overlayClassName="overlay" // Adicione uma classe CSS ao overlay da modal
+          className="modal" 
+          overlayClassName="overlay"
         >
           <div className="modal-dialog modal-dialog-scrollable">
             {" "}
-            {/* Adicione a classe modal-dialog-scrollable */}
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Detalhes da Ocorrência</h5>

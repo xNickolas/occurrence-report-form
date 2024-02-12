@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'application/pdf'];
 
 const FileUpload = ({ label, onChange }) => {
   const [files, setFiles] = useState([]);
@@ -16,11 +17,20 @@ const FileUpload = ({ label, onChange }) => {
 
     for (let i = 0; i < selectedFiles.length; i++) {
       const file = selectedFiles[i];
-      if (file.size <= MAX_FILE_SIZE) {
-        newFiles.push(file);
-      } else {
-        newError = `The file ${file.name} exceeds the size limit of ${MAX_FILE_SIZE / (1024 * 1024)} MB.`;
+
+      // Verify the file type
+      if (!ALLOWED_FILE_TYPES.includes(file.type)) {
+        newError = `O tipo de arquivo ${file.name} não é permitido.`;
+        continue;
       }
+
+      // Verify file size
+      if (file.size > MAX_FILE_SIZE) {
+        newError = `O arquivo ${file.name} excede o limite de tamanho de ${MAX_FILE_SIZE / (1024 * 1024)} MB.`;
+        continue;
+      }
+
+      newFiles.push(file);
     }
 
     setFiles(newFiles);

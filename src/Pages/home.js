@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { faUserCircle, faClipboard, faChartBar } from "@fortawesome/free-regular-svg-icons";
-import "../Pages/Pages.css";
-import Card from "../Components/Card/Card";
+import "./Pages.css";
+import Card from "../components/Card/Card";
 
 const Home = () => {
   return (

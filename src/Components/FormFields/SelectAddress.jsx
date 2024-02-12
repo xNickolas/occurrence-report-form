@@ -7,7 +7,7 @@ const AddressSearch = ({ onAddressSelected }) => {
   const [cep, setCep] = useState("");
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(null);
-  const [invalidCep, setInvalidCep] = useState(false); // State to track invalid ZIP code
+  const [invalidCep, setInvalidCep] = useState(false);
 
   const handleCepChange = (e) => {
     const { value } = e.target;

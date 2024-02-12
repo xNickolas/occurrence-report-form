@@ -2,7 +2,7 @@
   position: relative;
   margin: 0;
   overflow: hidden;
-  background: rgb(255, 230, 0);
+  background: #ffe600;
   background: linear-gradient(
     180deg,
     rgba(255, 230, 0, 1) 0%,
@@ -38,7 +38,16 @@
   position: relative;
 }
 
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 768px) {
+  .hero {
+    background: #fff159;
+    background: linear-gradient(
+      180deg,
+      #fff159 0%,
+      rgba(235, 235, 235, 1) 100%
+    );
+  }
+  
   .cards-container {
     padding: 0 10px !important;
     position: unset !important;

@@ -108,6 +108,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .nav-header {
+        background-color: #fff159;
+        border: 0;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -129,8 +134,8 @@
         width: 10px;
         height: 10px;
         transform: rotate(45deg);
-        border-top: solid 1px #e5d850;
-        border-left: solid 1px #e5d850;
+        border-top: solid 6px #fff;
+        border-left: solid 6px #fff;
     }
 
     .nav-links.active {
