@@ -1,4 +1,6 @@
 import React, { useState, useRef } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 10 MB
 
@@ -51,7 +53,9 @@ const FileUpload = ({ label, onChange }) => {
             {files.map((file, index) => (
               <li key={index}>
                 {file.name}
-                <button onClick={() => handleRemoveFile(index)}>Remover</button>
+                <button onClick={() => handleRemoveFile(index)}>
+                  <FontAwesomeIcon icon={faTimes} />
+                </button>
               </li>
             ))}
           </ul>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
-import "../Pages/Home.css";
+import "../Pages/Pages.css";
 import Card from "../Components/Card/Card";
 
 const Home = () => {
@@ -12,12 +12,7 @@ const Home = () => {
           <div>
             <h1>Registro de Ocorrências em Centros de Distribuição</h1>
             <p>
-              Aqui você pode registrar ocorrências em centros de distribuição
-              conforme as diretrizes da Mercado Livre.
-            </p>
-            <p>
-              Por favor, utilize o formulário abaixo para registrar uma nova
-              ocorrência:
+              Bem-vindo à nossa plataforma, onde você pode registrar e consultar ocorrências em tempo real em centros de distribuição.
             </p>
           </div>
         </div>
@@ -28,16 +23,16 @@ const Home = () => {
             <Card
               title="Entre na sua conta"
               icon={faUser}
-              text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-              buttonText="Clique aqui"
-              to="/occurrence-report"
+              text="Faça login na sua conta para acessar todos os recursos da plataforma e registrar ocorrências."
+              buttonText="Entrar na sua conta"
+              to="/"
             />
             <Link className="card-link" to="/occurrence-report">
               <Card
                 title="Registro de ocorrência"
                 icon={faUser}
-                text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                buttonText="Clique aqui"
+                text="Registre uma nova ocorrência relatando todos os detalhes relevantes para uma gestão eficiente."
+                buttonText="Registrar ocorrência"
                 to="/occurrence-report"
               />
             </Link>
@@ -45,8 +40,8 @@ const Home = () => {
               <Card
                 title="Estatísticas"
                 icon={faUser}
-                text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                buttonText="Clique aqui"
+                text="Acesse as estatísticas e análises das ocorrências registradas para melhorar os processos de distribuição."
+                buttonText="Visualizar ocorrências"
                 to="/statistics"
               />
             </Link>

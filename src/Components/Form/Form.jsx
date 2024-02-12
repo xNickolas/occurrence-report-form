@@ -13,7 +13,7 @@ const Form = () => {
     nomeRelator: "",
     tituloOcorrencia: "",
     descricaoOcorrencia: "",
-    enderecoOcorrencia: null, // Adicione o estado para o endereço selecionado
+    enderecoOcorrencia: null,
     centroDistribuicao: "",
     evidencias: null,
     dataOcorrencia: "",
@@ -55,7 +55,7 @@ const Form = () => {
   // Submissão do formulário
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lógica para lidar com a submissão do formulário
+    setShowErrorMessage(false); // Limpa mensagens de erro anteriores
     if (
       formData.nomeRelator &&
       formData.tituloOcorrencia &&
@@ -64,11 +64,9 @@ const Form = () => {
       formData.dataOcorrencia &&
       fileUploaded
     ) {
-      // Realize a submissão do formulário
       console.log("Formulário submetido com sucesso:", formData);
-      addOccurrence(formData); // Adicionar a ocorrência ao contexto global
-      setShowErrorMessage(false); // Resetar o estado de exibição do erro
-      setFormSubmitted(true); // Atualizar o estado para indicar que o formulário foi enviado com sucesso
+      addOccurrence(formData);
+      setFormSubmitted(true);
     } else {
       setShowErrorMessage(true);
     }
@@ -76,9 +74,8 @@ const Form = () => {
 
   // Função para lidar com o retorno ao formulário
   const handleReturnToForm = () => {
-    setFormSubmitted(false); // Resetar o estado de submissão do formulário
+    setFormSubmitted(false);
     setFormData({
-      // Limpar os campos do formulário
       nomeRelator: "",
       tituloOcorrencia: "",
       descricaoOcorrencia: "",
@@ -89,7 +86,7 @@ const Form = () => {
       dataEncerramento: "",
       observacao: "",
     });
-    setFileUploaded(false); // Resetar o estado de carregamento do arquivo
+    setFileUploaded(false);
   };
 
   return (
@@ -153,7 +150,8 @@ const Form = () => {
               />
 
               <FileUpload
-                label="Upload de Evidências*"
+                label="Upload de Evidências* (JPG,
+                  PNG e PDF)"
                 onChange={handleFileChange}
                 required
               />

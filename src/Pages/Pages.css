@@ -1,0 +1,257 @@
+.hero {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: rgb(255, 230, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 230, 0, 1) 0%,
+    rgba(235, 235, 235, 1) 100%
+  );
+  min-height: 35vh;
+}
+
+.hero h1 {
+  font-family: Proxima Nova, -apple-system, Roboto, Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+}
+
+.hero p {
+  font-size: 19px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  line-height: 1.5em;
+  margin: 0;
+  color: #333;
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+.info {
+  position: relative;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -130px; /* Ajuste conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cards-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-height: 80%; /* Defina uma altura máxima para a modal */
+  overflow-y: auto; /* Permita rolagem vertical quando necessário */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.modal-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+  margin-bottom: 2em;
+}
+
+.modal-title {
+  font-size: 22px;
+}
+
+.modal-header button {
+  cursor: pointer;
+  overflow: visible;
+  background: 0 0;
+  border: 0;
+  -webkit-appearance: none;
+  display: block;
+  outline: 0;
+  padding: 0;
+  font-size: 22px;
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.occurrence-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.67em 0;
+}
+
+.occurrence-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0.3em;
+}
+
+.occurrence-card span {
+  font-size: 12px;
+}
+
+.evidence-link {
+  cursor: pointer;
+  margin-right: 0.3em;
+  color: #3483FA;
+}
+.evidence-link:hover {
+  cursor: pointer;
+  margin-right: 0.3em;
+  color: #1556b7;
+}
+
+.mfp-wrap {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1043;
+  position: fixed;
+  outline: 0 !important;
+  -webkit-backface-visibility: hidden;
+}
+
+.mfp-container {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.mfp-container:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.mfp-close {
+  cursor: pointer;
+  overflow: visible;
+  background: 0 0;
+  border: 0;
+  -webkit-appearance: none;
+  display: block;
+  outline: 0;
+  padding: 0;
+  z-index: 1046;
+  box-shadow: none;
+  touch-action: manipulation;
+}
+
+.mfp-close {
+  width: 100%;
+  text-align: right;
+  font-size: 22px;
+  text-decoration: none;
+  opacity: .65;
+  padding: 0 0 18px 10px;
+  color: #fff;
+}
+
+.mfp-content {
+  max-width: 100%;
+  cursor: auto;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  text-align: left;
+  z-index: 1045;
+}
+
+.mfp-content img {
+  max-height: 493px;
+}
+
+/* .mfp-figure:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 40px;
+  bottom: 40px;
+  display: block;
+  right: 0;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background: #444;
+} */
+
+img.mfp-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  line-height: 0;
+  box-sizing: border-box;
+  padding: 40px 0 40px;
+  margin: 0 auto;
+}
+
+.border-top-thin {
+  border-top: 1px solid #cacaca;
+}
