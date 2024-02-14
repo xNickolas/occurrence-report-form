@@ -6,6 +6,7 @@ import {
   faChartBar,
 } from "@fortawesome/free-regular-svg-icons";
 import heroImage from "../assets/cd-mercadolivre.png";
+import aboutImage from "../assets/cd-mercadolivre-2.jpg";
 import "./Pages.css";
 import Card from "../components/Card/Card";
 
@@ -30,8 +31,17 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-            <div className="col-lg-5 d-flex align-items-center justify-center">
+            <div className="col-lg-5 d-flex align-items-center justify-end">
               <img className="hero-image" src={heroImage} alt="Logo" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="about">
+        <div className="container">
+          <div className="row">
+          <div className="col-lg-5 d-flex align-items-center justify-end">
+              <img className="about-image" src={aboutImage} alt="Logo" />
             </div>
           </div>
         </div>

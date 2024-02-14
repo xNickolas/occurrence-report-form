@@ -7,6 +7,7 @@ import Home from "./pages/home";
 import Statistics from "./pages/statistics";
 import Navbar from "./components/Navbar/Navbar";
 import OccurrenceReport from "./components/OccurrenceReport/OccurrenceReport";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/occurrence-report" component={OccurrenceReport} />
           <Route path="/statistics" component={Statistics} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

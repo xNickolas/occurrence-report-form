@@ -101,8 +101,32 @@ textarea {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: start;
+}
+
 .justify-center {
   justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.pb-0 {
+  padding-bottom: 0;
 }
 
 .button-primary {

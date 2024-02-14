@@ -4,9 +4,9 @@ import Form from "../Form/Form";
 
 const OccurrenceReport = () => {
   return (
-    <section className="form">
-      <div className="container form-wrapper">
-        <div className="form-header">
+    <section className="form form-header">
+      <div className="container form-wrapper pb-0">
+        <div>
           <h1>Registro de Ocorrências em Centros de Distribuição</h1>
           <p>
             Este espaço foi projetado para permitir que você documente e reporte
@@ -14,7 +14,8 @@ const OccurrenceReport = () => {
             Livre.
           </p>
         </div>
-
+      </div>
+      <div className="container">
         <Form />
       </div>
     </section>

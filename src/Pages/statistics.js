@@ -31,7 +31,7 @@ const Statistics = () => {
   };
 
   return (
-    <section>
+    <section className="statistics-section page-header">
       <div className="container">
         <div>
           <h1>Lista de Ocorrências em Centros de Distribuição</h1>

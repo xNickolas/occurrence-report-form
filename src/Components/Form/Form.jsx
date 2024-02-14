@@ -103,6 +103,8 @@ const Form = () => {
                 onChange={handleChange}
                 required
               />
+            </div>
+            <div className="col-lg-6">
               <Input
                 label="Título da Ocorrência*"
                 type="text"
@@ -111,9 +113,11 @@ const Form = () => {
                 onChange={handleChange}
                 required
               />
-
+            </div>
+            <div className="col-lg-6">
               <SelectAddress onAddressSelected={handleAddressSelected} />
-
+            </div>
+            <div className="col-lg-6">
               <div className="row">
                 <div className="col-lg-6">
                   <Input
@@ -134,12 +138,6 @@ const Form = () => {
                   />
                 </div>
               </div>
-
-              <FileUpload
-                label="Upload de Evidências* (JPG, PNG e PDF)"
-                onChange={handleFileChange}
-                required
-              />
             </div>
             <div className="col-lg-6">
               <TextArea
@@ -153,12 +151,20 @@ const Form = () => {
                   A descrição deve ter no mínimo 5 caracteres.
                 </p>
               )}
-
+            </div>
+            <div className="col-lg-6">
               <TextArea
                 label="Observação da Ocorrência"
                 name="observation"
                 value={formData.observation}
                 onChange={handleChange}
+              />
+            </div>
+            <div className="col-lg-6">
+              <FileUpload
+                label="Upload de Evidências* (JPG, PNG e PDF)"
+                onChange={handleFileChange}
+                required
               />
             </div>
           </div>

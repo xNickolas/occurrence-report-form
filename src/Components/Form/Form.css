@@ -76,7 +76,11 @@ textarea:focus {
 .form-search {
   position: relative;
   display: flex;
-  margin-bottom: 1rem;
+}
+
+.form-address-check {
+  margin-top: 1rem;
+  color: #777;;
 }
 
 .search-button {

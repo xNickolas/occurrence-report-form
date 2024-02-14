@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
@@ -49,6 +49,8 @@ const AddressSearch = ({ onAddressSelected }) => {
           type="text"
           value={cep}
           onChange={handleCepChange}
+          inputMode="numeric"
+          pattern="[0-9]*"
         />
         <button className="search-button" onClick={searchAddress}>
           <FontAwesomeIcon icon={faSearch} />

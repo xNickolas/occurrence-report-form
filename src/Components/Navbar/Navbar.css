@@ -49,10 +49,10 @@
 }
 
 .nav-menu-item a:link, .nav-menu-item a:visited {
-    color: rgba(0,0,0,.8980392157);
+    color: #000000e5;
 }
 
-.nav-menu-item .av-menu-link {
+.nav-menu-item .nav-menu-link {
     display: flex;
     line-height: 18px;
     box-sizing: border-box;
@@ -63,12 +63,11 @@
     text-decoration: none;
     -webkit-font-smoothing: antialiased;
     color: rgba(0,0,0,.8980392157);
-    transition: color .3s ease-out;
     font-weight: 400;
 }
 
 .nav-menu-item a:hover {
-    color: #333;
+    color: #2d81ff;
 }
 
 .nav-logo a {
