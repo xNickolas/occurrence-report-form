@@ -16,7 +16,7 @@ const Home = () => {
       <section className="hero">
         <div className="container">
           <div className="row">
-            <div className="col-lg-7 d-flex align-items-center">
+            <div className="col-lg-7">
               <div>
                 <h1>Ocorrências em Centros de Distribuição</h1>
                 <p>
@@ -37,12 +37,25 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       <section className="about">
         <div className="container">
-          <div className="row">
-          <div className="col-lg-5 d-flex align-items-center justify-end">
+          <div className="row justify-between">
+            <div className="col-lg-5 d-flex align-items-center">
               <img className="about-image" src={aboutImage} alt="Logo" />
             </div>
+            <div className="col-lg-6">
+              <h1>O que é a <strong className="about-heading-bold">Plataforma OCD</strong> e como podemos te ajudar?</h1>
+              <p>
+                Este espaço foi cuidadosamente projetado para
+                permitir que você documente e reporte eventos relevantes conforme
+                as diretrizes estabelecidas pelo <strong>Mercado Livre</strong>. Valorizamos a
+                transparência e a eficiência em nossas operações, e este sistema
+                foi desenvolvido para facilitar a comunicação e a resolução de
+                questões relacionadas à distribuição de produtos. Conte conosco
+                para fornecer suporte e assistência ao longo do processo.
+              </p>
+          </div>
           </div>
         </div>
       </section>

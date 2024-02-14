@@ -109,7 +109,29 @@
   position: relative;
 }
 
+.about h1 {
+  color: #0c0c0c;
+  font-weight: 400;
+  letter-spacing: -0.0369230769rem;
+  font-size: 3.2615384615rem;
+  line-height: 3.5384615385rem;
+  margin-bottom: 1.8461538462rem;
+}
+
+.about-heading-bold {
+  color: #3483fa;
+}
+
+.about p {
+  color: #0c0c0c;
+  font-size: 1.3384615385rem;
+  font-weight: 400;
+  line-height: 1.8461538462rem;
+  margin-bottom: 1.5384615385rem;
+}
+
 .about-image {
+  border-radius: 6px;
   width: 80%;
   max-width: 100%;
   filter: drop-shadow(0 0 0.4rem rgba(39, 39, 39, 0.545));

@@ -90,7 +90,7 @@ textarea {
 }
 
 .d-none {
-  display: none;
+  display: none !important;
 }
 
 .d-flex {
@@ -111,6 +111,10 @@ textarea {
 
 .justify-end {
   justify-content: end;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .m-0 {

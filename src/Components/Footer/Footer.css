@@ -71,6 +71,7 @@
 
 .footer-links a {
     all: unset;
+    cursor: pointer;
 }
 
 .footer-social-container {
@@ -114,52 +115,3 @@
 
 
 
-
-/* 
-footer section {
-  padding: 3em 13%;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-}
-
-.company-info {
-  width: 250px;
-}
-
-.company-info img {
-  margin-top: 12px;
-  cursor: pointer;
-}
-
-.company-info p {
-  font-family: var(--font-Karla);
-  font-size: 18px;
-  color: white;
-}
-
-footer h3 {
-  font-family: var(--font-Karla);
-  font-size: 18px;
-  font-weight: 800;
-  color: white;
-}
-
-footer ul {
-  padding: 0;
-}
-
-footer ul li {
-  padding: 8px 0;
-  font-family: var(--font-Karla);
-  font-size: 14px;
-  font-weight: 300;
-  color: white;
-}
-
-footer ul li a {
-  font-family: var(--font-Karla);
-  font-size: 14px;
-  font-weight: 300;
-  color: white;
-} */
