@@ -9,8 +9,8 @@
 }
 
 .hero h1 {
-  font-size: 4.3846153846rem;
-  line-height: 5rem;
+  font-size: 68px;
+  line-height: 4rem;
   font-weight: 400;
   color: #333;
   letter-spacing: -0.0246153846rem;
@@ -18,7 +18,7 @@
 }
 
 .hero p {
-  font-size: 1.1384615385rem;
+  font-size: 17px;
   line-height: 1.5384615385rem;
   font-weight: 400;
   color: #0c0c0c;
@@ -30,9 +30,10 @@
 }
 
 .hero-image {
-  width: 80%;
+  border-radius: 16px;
+  width: 90%;
   max-width: 100%;
-  filter: drop-shadow(0 0 0.4rem rgba(39, 39, 39, 0.545));
+  filter: drop-shadow(0 0 0.4rem rgba(39, 39, 39, 0.43));
 }
 
 .info {
@@ -113,9 +114,15 @@
   color: #0c0c0c;
   font-weight: 400;
   letter-spacing: -0.0369230769rem;
-  font-size: 3.2615384615rem;
+  font-size: 68px;
   line-height: 3.5384615385rem;
   margin-bottom: 1.8461538462rem;
+}
+@media screen and (max-width: 768px){
+  .about h1 {
+    font-size: 46px;
+    line-height: 1;
+}
 }
 
 .about-heading-bold {
@@ -124,15 +131,15 @@
 
 .about p {
   color: #0c0c0c;
-  font-size: 1.3384615385rem;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.8461538462rem;
   margin-bottom: 1.5384615385rem;
 }
 
 .about-image {
-  border-radius: 6px;
-  width: 80%;
+  border-radius: 16px;
+  width: 90%;
   max-width: 100%;
   filter: drop-shadow(0 0 0.4rem rgba(39, 39, 39, 0.545));
 }
@@ -152,10 +159,12 @@
 }
 /* Statistics Page */
 
+
 @media (min-width: 991px) {
   .statistics-section {
     align-items: center;
-    height: 93vh;
+    height: auto;
+    min-height: 100vh;
     justify-content: center;
   }
 }

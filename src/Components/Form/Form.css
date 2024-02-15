@@ -102,11 +102,31 @@ textarea:focus {
   -webkit-font-smoothing: antialiased;
 }
 
+
+.file-upload-container {
+  width: 100%;
+  background-color: #f3f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 0.33em;
+  border-radius: 0.375em;
+  border: 1px solid #dee2e6;
+}
+
+.upload-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
 .custom-file-upload {
   position: relative;
   overflow: hidden;
-  display: inline-block;
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .custom-file-upload input[type="file"] {
@@ -121,6 +141,7 @@ textarea:focus {
   font-size: 16px;
   margin-top: 0.33em;
   padding: 10px 20px;
+  border-radius: 6px;
   background-color: #4caf50;
   color: white;
   border: none;

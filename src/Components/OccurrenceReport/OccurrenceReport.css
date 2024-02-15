@@ -19,7 +19,8 @@
 @media (min-width: 991px) {
   .form {
     align-items: center;
-    height: 93vh;
+    height: auto;
+    min-height: 100vh;
     justify-content: center;
   }
 }

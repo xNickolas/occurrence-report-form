@@ -5,7 +5,7 @@ import {
   faClipboard,
   faChartBar,
 } from "@fortawesome/free-regular-svg-icons";
-import heroImage from "../assets/cd-mercadolivre.png";
+import heroImage from "../assets/cd-equipe.jpg";
 import aboutImage from "../assets/cd-mercadolivre-2.jpg";
 import "./Pages.css";
 import Card from "../components/Card/Card";
@@ -15,8 +15,8 @@ const Home = () => {
     <main>
       <section className="hero">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-7">
+          <div className="row justify-center">
+            <div className="col-lg-6">
               <div>
                 <h1>Ocorrências em Centros de Distribuição</h1>
                 <p>
@@ -40,7 +40,7 @@ const Home = () => {
 
       <section className="about">
         <div className="container">
-          <div className="row justify-between">
+          <div className="row justify-center">
             <div className="col-lg-5 d-flex align-items-center">
               <img className="about-image" src={aboutImage} alt="Logo" />
             </div>

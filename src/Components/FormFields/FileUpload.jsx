@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faDownload } from "@fortawesome/free-solid-svg-icons";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'application/pdf'];
@@ -52,21 +52,27 @@ const FileUpload = ({ label, onChange }) => {
   };
 
   return (
-    <div className='form-group'>
-      <label className='form-label'>{label}</label>
-      <div className="custom-file-upload">
-        <input
-          type="file"
-          onChange={handleFileChange}
-          accept=".jpg, .jpeg, .png, .pdf"
-          multiple
-          ref={fileInputRef}
-          style={{ display: 'none' }}
-        />
-        <button type="button" onClick={handleButtonClick}>Selecionar Arquivos</button>
+    <div className="form-group">
+      <label className="form-label">{label}</label>
+      <div className="file-upload-container">
+        <FontAwesomeIcon className='upload-icon' icon={faDownload} />
+        <label className="form-label">Por favor, selecione um arquivo</label>
+        <div className="custom-file-upload">
+          <input
+            type="file"
+            onChange={handleFileChange}
+            accept=".jpg, .jpeg, .png, .pdf"
+            multiple
+            ref={fileInputRef}
+            style={{ display: "none" }}
+          />
+          <button type="button" onClick={handleButtonClick}>
+            Selecionar Arquivos
+          </button>
+        </div>
       </div>
       {files.length > 0 && (
-        <div className='files-uploaded'>
+        <div className="files-uploaded">
           <p>Arquivos selecionados:</p>
           <ul>
             {files.map((file, index) => (
@@ -80,9 +86,7 @@ const FileUpload = ({ label, onChange }) => {
           </ul>
         </div>
       )}
-      {error && (
-        <p style={{ color: 'red' }}>{error}</p>
-      )}
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 };
