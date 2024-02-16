@@ -3,7 +3,7 @@ body {
   font-family: Proxima Nova, -apple-system, Roboto, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 code {
@@ -58,10 +58,29 @@ textarea {
   }
 
   .col-lg-7 {
-      flex: 0 0 auto;
-      width: 58.33333333%;
+    flex: 0 0 auto;
+    width: 58.33333333%;
   }
 
+  .col-lg-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+
+  .col-lg-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+
+  .col-lg-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+  }
+
+  .col-lg-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+  }
 
   .col-lg-12 {
     flex: 0 0 auto;
@@ -145,7 +164,6 @@ textarea {
 
   border-radius: 6px;
   font-size: 16px;
-  font-weight: 600;
   height: 48px;
   line-height: 48px;
   padding: 0 24px;

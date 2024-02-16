@@ -188,11 +188,37 @@ const Form = () => {
         </form>
       )}
       {formSubmitted && (
-        <div className="form-end-message">
-          <p className="success-message">Formulário enviado com sucesso!</p>
-          <button className="button-primary" onClick={handleReturnToForm}>
-            Adicionar outra ocorrência
-          </button>
+        <div className="row justify-center">
+          <div className="col-lg-8">
+            <div className="form-end-message">
+              <div className="end-message__action">
+                <p className="success-message">
+                  Ocorrência registrada com sucesso!
+                </p>
+                <button className="button-primary" onClick={handleReturnToForm}>
+                  Adicionar outra ocorrência
+                </button>
+              </div>
+              <div className="end-message__content">
+                <h1>Ficou alguma dúvida?</h1>
+                <p>
+                  Nossa ferramenta de registro de ocorrências foi projetada para
+                  simplificar o processo de relato, permitindo que você descreva
+                  detalhadamente cada evento e anexe evidências relevantes, como
+                  imagens, documentos e outros arquivos.
+                </p>
+                <p>
+                  Se você tiver várias ocorrências para relatar, sinta-se à
+                  vontade para adicionar quantas forem necessárias. Estamos aqui
+                  para ouvir suas preocupações e tomar as medidas apropriadas
+                  para resolver cada situação.
+                  <br />
+                  Agradecemos sua colaboração em manter nosso ambiente seguro e
+                  protegido para todos.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </>

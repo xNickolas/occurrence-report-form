@@ -1,11 +1,11 @@
 .error-message {
   font-size: 13px;
   line-height: 1;
-  color: #f23d4f!important;
+  color: #f23d4f !important;
 }
 
 .form-control__label {
-  color: #f23d4f!important;
+  color: #f23d4f !important;
 }
 
 .form-control--error {
@@ -15,7 +15,6 @@
 .form-control__error-bottom {
   margin: 0.3153846154em 0;
 }
-
 
 .form-control__error-icon {
   color: #f23d4f;
@@ -29,8 +28,6 @@
   color: #f04449;
   opacity: 1;
 }
-
-
 
 .form-group {
   margin-bottom: 16px;
@@ -47,7 +44,6 @@
 }
 
 .form-label {
-  color: rgba(0, 0, 0, 0.9);
   cursor: text;
   font-size: 14px;
   font-weight: 400;
@@ -70,7 +66,6 @@
   padding: 0.8125em 0.75em;
   font-size: 16px;
   line-height: 22px;
-  color: #333;
 
   outline: none;
   border: 1px solid #dee2e6;
@@ -136,9 +131,6 @@ textarea:focus {
   -webkit-font-smoothing: antialiased;
 }
 
-
-
-
 .file-upload-container {
   width: 100%;
   /* background-color: #f3f4f4; */
@@ -152,13 +144,11 @@ textarea:focus {
 
 .file-upload__message-title {
   font-size: 14px;
-  color: #333;
   font-weight: 600;
   margin-bottom: 0.3153846154em;
 }
 .file-upload__message-text {
   font-size: 12px;
-  color: #333;
   margin-bottom: 0;
 }
 
@@ -196,8 +186,6 @@ textarea:focus {
   background-color: #246ad2;
   color: #fff;
 }
-
-
 
 .files-uploaded {
   width: 100%;
@@ -249,6 +237,47 @@ textarea:focus {
   margin-top: 2rem;
 }
 
-.form-end-message p {
-  margin-bottom: 1rem;
+.form-end-message {
+  padding: 32px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.form-end-message .end-message__action {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.form-end-message .end-message__action p {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.form-end-message .end-message__content h1 {
+  text-align: center;
+  font-size: 44px;
+  font-weight: 200;
+  margin-bottom: 2rem;
+}
+
+.form-end-message .end-message__content p {
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 1em 0;
+  text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  .file-upload-container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .file-upload__message {
+    margin-bottom: 14px;
+  }
 }
