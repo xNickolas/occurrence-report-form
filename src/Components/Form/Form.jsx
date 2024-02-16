@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../Form/Form.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { useOccurrenceContext } from "../../contexts/OccurrenceContext";
 import Input from "../FormFields/Input/Input";
 import TextArea from "../FormFields/TextArea";
@@ -21,11 +23,10 @@ const Form = () => {
     observation: "",
   });
   const [showErrorMessage, setShowErrorMessage] = useState(false);
-  const [fileUploaded, setFileUploaded] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [descriptionError, setDescriptionError] = useState(false);
 
-  // Handlers to update the form state
+  // Handlers para atualizar o estado do formulário
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -44,35 +45,34 @@ const Form = () => {
     }));
   };
 
-  const handleFileChange = (file) => {
+  const handleFileChange = (files) => {
     setFormData((prevState) => ({
       ...prevState,
-      evidence: file,
+      evidence: files,
     }));
-    setFileUploaded(true);
   };
 
-  // Form submission
+  // Submissão do formulário
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowErrorMessage(false);
+    setShowErrorMessage(true);
     if (
       formData.rapporteurName &&
       formData.occurrenceTitle &&
       formData.occurrenceDescription &&
       formData.occurrenceAddress &&
       formData.occurrenceDate &&
-      fileUploaded
+      formData.evidence && // Check if evidence exists
+      formData.evidence.length > 0 // Check if evidence array has at least one file
     ) {
-      console.log("Form submitted successfully:", formData);
+      console.log("Formulário enviado com sucesso:", formData);
       addOccurrence(formData);
       setFormSubmitted(true);
-    } else {
-      setShowErrorMessage(true);
+      setShowErrorMessage(false);
     }
   };
 
-  // Handle returning to the form
+  // Lidar com o retorno ao formulário
   const handleReturnToForm = () => {
     setFormSubmitted(false);
     setFormData({
@@ -86,7 +86,6 @@ const Form = () => {
       closingDate: "",
       observation: "",
     });
-    setFileUploaded(false);
   };
 
   return (
@@ -102,6 +101,7 @@ const Form = () => {
                 value={formData.rapporteurName}
                 onChange={handleChange}
                 required
+                error={showErrorMessage && !formData.rapporteurName}
               />
             </div>
             <div className="col-lg-6">
@@ -112,10 +112,14 @@ const Form = () => {
                 value={formData.occurrenceTitle}
                 onChange={handleChange}
                 required
+                error={showErrorMessage && !formData.occurrenceTitle}
               />
             </div>
             <div className="col-lg-6">
-              <SelectAddress onAddressSelected={handleAddressSelected} />
+              <SelectAddress
+                onAddressSelected={handleAddressSelected}
+                error={showErrorMessage && !formData.occurrenceAddress}
+              />
             </div>
             <div className="col-lg-6">
               <div className="row">
@@ -126,6 +130,8 @@ const Form = () => {
                     name="occurrenceDate"
                     value={formData.occurrenceDate}
                     onChange={handleChange}
+                    required
+                    error={showErrorMessage && !formData.occurrenceDate}
                   />
                 </div>
                 <div className="col-lg-6">
@@ -139,17 +145,24 @@ const Form = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-6 text__area-description">
               <TextArea
                 label="Descrição da Ocorrência*"
                 name="occurrenceDescription"
                 value={formData.occurrenceDescription}
                 onChange={handleChange}
+                required
+                error={showErrorMessage && !formData.occurrenceDescription}
               />
               {descriptionError && (
-                <p className="error-message">
-                  A descrição deve ter no mínimo 5 caracteres.
-                </p>
+                <div className="form-control__error-bottom">
+                  <span className="form-control__error-icon">
+                    <FontAwesomeIcon icon={faExclamationCircle} />
+                  </span>
+                  <span className="error-message">
+                    A descrição deve ter no mínimo 5 caracteres
+                  </span>
+                </div>
               )}
             </div>
             <div className="col-lg-6">
@@ -162,19 +175,12 @@ const Form = () => {
             </div>
             <div className="col-lg-6">
               <FileUpload
-                label="Upload de Evidências* (JPG, PNG e PDF)"
+                label="Upload de Evidências*"
                 onChange={handleFileChange}
-                required
+                error={showErrorMessage && !formData.evidence}
               />
             </div>
           </div>
-          {showErrorMessage && (
-            <div>
-              <p className="error-message">
-                Por favor, preencha todos os campos do formulário.
-              </p>
-            </div>
-          )}
 
           <button className="button-primary submit-button" type="submit">
             Enviar

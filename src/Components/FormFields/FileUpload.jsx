@@ -1,32 +1,31 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faDownload } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTimes,
+  faDownload,
+  faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
-const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'application/pdf'];
+const ALLOWED_FILE_TYPES = ["image/jpeg", "image/png", "application/pdf"];
 
-const FileUpload = ({ label, onChange }) => {
+const FileUpload = ({ label, onChange, error }) => {
   const [files, setFiles] = useState([]);
-  const [error, setError] = useState('');
   const fileInputRef = useRef(null);
+  const [fileUploadError, setFileUploadError] = useState(false); // New state to track file upload error
 
   const handleFileChange = (e) => {
     const selectedFiles = e.target.files;
     let newFiles = [];
-    let newError = '';
 
     for (let i = 0; i < selectedFiles.length; i++) {
       const file = selectedFiles[i];
 
-      // Verify the file type
       if (!ALLOWED_FILE_TYPES.includes(file.type)) {
-        newError = `O tipo de arquivo ${file.name} não é permitido.`;
         continue;
       }
 
-      // Verify file size
       if (file.size > MAX_FILE_SIZE) {
-        newError = `O arquivo ${file.name} excede o limite de tamanho de ${MAX_FILE_SIZE / (1024 * 1024)} MB.`;
         continue;
       }
 
@@ -35,7 +34,7 @@ const FileUpload = ({ label, onChange }) => {
 
     setFiles(newFiles);
     onChange(newFiles);
-    setError(newError);
+    setFileUploadError(false); // Reset the error when files are added
   };
 
   const handleButtonClick = () => {
@@ -49,15 +48,42 @@ const FileUpload = ({ label, onChange }) => {
     newFiles.splice(index, 1);
     setFiles(newFiles);
     onChange(newFiles);
+    if (newFiles.length === 0) {
+      setFileUploadError(true); // Set file upload error if no files are present
+    } else {
+      setFileUploadError(false); // Reset the error when files are removed
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (files.length === 0) {
+      setFileUploadError(true); // Set file upload error if no files are present
+      return;
+    }
+    // Rest of the form submission logic
   };
 
   return (
-    <div className="form-group">
-      <label className="form-label">{label}</label>
-      <div className="file-upload-container">
-        <FontAwesomeIcon className='upload-icon' icon={faDownload} />
-        <label className="form-label">Por favor, selecione um arquivo</label>
-        <div className="custom-file-upload">
+    <div className={`form-group ${error || fileUploadError ? "has-error" : ""}`}>
+      <label
+        className={`form-label ${
+          error || fileUploadError ? "error-input form-control__label" : ""
+        }`}
+      >
+        {label}
+      </label>
+      <div
+        className={`file-upload-container ${
+          error || fileUploadError ? "error-input form-control--error" : ""
+        }`}
+      >
+        <div className="file-upload__message">
+          <p className="file-upload__message-title"><FontAwesomeIcon className="upload-icon" icon={faDownload} /> Faça upload dos arquivos aqui</p>
+          <p className="file-upload__message-text">Tipos de arquivos aceitos: JPG, PNG e PDF</p>
+        </div>
+
+        <div className="file-upload__button">
           <input
             type="file"
             onChange={handleFileChange}
@@ -74,11 +100,15 @@ const FileUpload = ({ label, onChange }) => {
       {files.length > 0 && (
         <div className="files-uploaded">
           <p>Arquivos selecionados:</p>
+
           <ul>
             {files.map((file, index) => (
               <li key={index}>
                 {file.name}
-                <button onClick={() => handleRemoveFile(index)}>
+                <button
+                  type="button"
+                  onClick={() => handleRemoveFile(index)}
+                >
                   <FontAwesomeIcon icon={faTimes} />
                 </button>
               </li>
@@ -86,7 +116,14 @@ const FileUpload = ({ label, onChange }) => {
           </ul>
         </div>
       )}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {(error || fileUploadError) && (
+        <div className="form-control__error-bottom">
+          <span className="form-control__error-icon">
+            <FontAwesomeIcon icon={faExclamationCircle} />
+          </span>
+          <span className="form-control__error-message">Campo obrigatório</span>
+        </div>
+      )}
     </div>
   );
 };
