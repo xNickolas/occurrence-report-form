@@ -1,8 +1,7 @@
-# Sistema de Registro de Ocorrências em Centros de Distribuição
+# Distribution Center Occurrence Reporting System
+This is a project for a system to register and manage occurrences in distribution centers. The system allows users to register new occurrences and query previously registered occurrences.
 
-Este é um projeto de um sistema para registrar e gerenciar ocorrências em centros de distribuição. O sistema permite que os usuários registrem novas ocorrências e consultem ocorrências registradas anteriormente.
-
-## Tecnologias Utilizadas
+## Technologies Used
 
 - React.js
 - Next.js
@@ -12,41 +11,49 @@ Este é um projeto de um sistema para registrar e gerenciar ocorrências em cent
 - React Testing Library
 - CSS
 
-## Instalação
+## Node Version
 
-1. Clone este repositório em sua máquina local:
+```v21.6.1```
+
+## Installation
+
+1. Clone this repository to your local machine:
 
    ```bash
    git clone https://github.com/xNickolas/occurrence-report-form.git
    ```
 
-2. Navegue até o diretório do projeto:
+2. Navigate to the project directory:
+
 ```cd occurrence-report-form```
 
-3. Instale as dependências do projeto:
+3. Install the project dependencies:
+
 ```npm install```
 
-## Como Usar
+## How to Use
 
-1. Inicie o servidor de desenvolvimento:
-npm run dev
+1. Start the development server:
 
-2. Abra seu navegador e acesse http://localhost:3000 para visualizar o aplicativo.
+```npm start```
 
-## Estrutura do Projeto
-- /pages: Contém as páginas do aplicativo, cada uma representando uma rota acessível pelo usuário.
-- /components: Contém os componentes reutilizáveis do aplicativo, como Navbar, Cards, etc.
-- /contexts: Contém os contextos do aplicativo, utilizado para compartilhar estados entre componentes.
-- /public: Contém arquivos estáticos, como imagens e ícones.
-- /styles: Contém arquivos de estilos CSS para o aplicativo.
+2. Open your browser and go to http://localhost:3000 to view the application.
 
-## Testes
-Este projeto inclui testes unitários para alguns componentes principais, incluindo Inputs, FileUpload, SelectAddress, TextArea e Card. Para executar os testes, você pode usar o seguinte comando:
+## Project Structure
+- /pages: Contains the application pages, each representing a route accessible to the user.
+- /components: Contains reusable components of the application, such as Navbar, Cards, etc.
+- /contexts: Contains the application's contexts, used for sharing states between components.
+- /public: Contains static files, such as images and icons.
+- /styles: Contains CSS style files for the application.
 
-npm test
+## Testing
 
-## Contribuindo
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um problema para relatar bugs ou solicitar novos recursos. Se desejar contribuir com código, por favor siga as diretrizes de contribuição do projeto.
+This project includes unit tests for some core components, including Inputs, FileUpload, SelectAddress, TextArea, and Card. To run the tests, you can use the following command:
+
+```npm test```
+
+## Contributing
+Contributions are welcome! Feel free to open an issue to report bugs or request new features. If you'd like to contribute code, please follow the project's contribution guidelines.
 
 
 

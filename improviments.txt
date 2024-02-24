@@ -1,0 +1,6 @@
+Pontos feedback - Mercado Livre
+
+Melhorar bem o readme de como usar o projeto, (versoes, intalação, rodar projeto, comandos etc).
+Colocar no readme a versao do node.js que esta sendo usado no projeto.
+Importar pastas com letras maiusculas ex: "components/Footer/Footer.jsx" para "Components/Footer/Footer.jsx". Importante para que rode e funcione em diferentes sistemas operacionais.
+Boa pratica usar o typescript.
